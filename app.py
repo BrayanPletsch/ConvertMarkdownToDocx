@@ -95,6 +95,14 @@ while i < len(lines):
         i += 1
         continue
 
+    def add_markdown_runs(paragraph, text):
+        for part in re.split(r'(\*\*[^*]+\*\*)', text):
+            if part.startswith('**') and part.endswith('**'):
+                run = paragraph.add_run(part[2:-2])
+                run.bold = True
+            else:
+                paragraph.add_run(part)
+
     if '|' in line and i + 1 < len(lines) and re.match(r'^\s*[\|\:\-\s]+\s*$', lines[i + 1]):
         header_line = line
         j = i + 2
@@ -116,11 +124,7 @@ while i < len(lines):
             cell = table.cell(0, ci)
             cell_para = cell.paragraphs[0]
             parts = re.split(r'(\*\*[^*]+\*\*)', cell_text)
-            for part in parts:
-                if part.startswith('**') and part.endswith('**'):
-                    cell_para.add_run(part[2:-2]).bold = True
-                else:
-                    cell_para.add_run(part)
+            add_markdown_runs(cell_para, cell_text)
 
         for ri, body_line in enumerate(body_lines, start=1):
             cells = split_cells(body_line)
@@ -136,15 +140,17 @@ while i < len(lines):
         i = j
         continue
 
-    if line.strip().startswith('- ') or line.strip().startswith('* '):
+    if line.strip().startswith(('- ', '* ')):
         item_text = line.strip()[2:].strip()
-        doc.add_paragraph(item_text, style='List Bullet')
+        p = doc.add_paragraph(style='List Bullet')
+        add_markdown_runs(p, item_text)
         i += 1
         continue
 
     if re.match(r'^\d+\.\s', line.strip()):
         item_text = re.sub(r'^\d+\.\s*', '', line.strip())
-        doc.add_paragraph(item_text, style='List Number')
+        p = doc.add_paragraph(style='List Number')
+        add_markdown_runs(p, item_text)
         i += 1
         continue
 
@@ -169,12 +175,7 @@ while i < len(lines):
         continue
 
     paragraph = doc.add_paragraph()
-    parts = re.split(r'(\*\*[^*]+\*\*)', line)
-    for part in parts:
-        if part.startswith('**') and part.endswith('**'):
-            paragraph.add_run(part[2:-2]).bold = True
-        else:
-            paragraph.add_run(part)
+    add_markdown_runs(paragraph, line)
     i += 1
 
 os.makedirs('output', exist_ok=True)

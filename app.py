@@ -8,9 +8,17 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_LINE_SPACING
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 
+def remove_citation_tokens(text):
+    text = re.sub(r'.*?', '', text)
+    text = re.sub(r'[ ]+\.', '.', text)
+    text = re.sub(r'\. {2,}', '. ', text)
+    return text
+
 markdown_text = """
 (Insira seu texto em markdown aqui)
 """
+
+markdown_text = remove_citation_tokens(markdown_text)
 
 doc = Document()
 

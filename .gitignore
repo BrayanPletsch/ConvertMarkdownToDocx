@@ -29,6 +29,7 @@ poetry.lock
 # Output directory and generated docs
 output/
 *.docx
+*.md
 
 # Editor / IDE directories and files
 .vscode/

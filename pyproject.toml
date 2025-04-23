@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "convert_markdown"
+name = "convert-markdown-docx"
 version = "0.1.0"
 description = "Converte arquivos Markdown para DOCX formatado em ABNT."
 authors = ["Brayan Pletsch <brayan.pletsch@gmail.com>"]

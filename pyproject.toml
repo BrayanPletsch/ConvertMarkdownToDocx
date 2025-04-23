@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Converte arquivos Markdown para DOCX formatado em ABNT."
 authors = ["Brayan Pletsch <brayan.pletsch@gmail.com>"]
 license = "MIT"
-readme = { file = "README.md", content-type = "text/markdown" }
+readme = "README.md"
 packages = [
   { include = "convert_markdown", from = "src" }
 ]
@@ -34,7 +34,7 @@ lxml = "5.3.2"
 python-docx = "1.1.2"
 typing_extensions = "4.13.2"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 pytest = "^7.0"
 flake8 = "^5.0"
 isort = "^5.0"

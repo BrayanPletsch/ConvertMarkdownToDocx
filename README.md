@@ -29,13 +29,13 @@ Após instalado, você pode executar o conversor diretamente:
 1. Para executar com o nome do arquivo gerado automaticamente:
 
 ```bash
-convert_markdown input/seu_arquivo.md
+convert input/seu_arquivo.md
 ```
 
 2. Caso deseje definir manualmente o nome do arquivo que será gerado:
 
 ```bash
-convert_markdown input/seu_arquivo.md -o nome_final.docx
+convert input/seu_arquivo.md -o nome_final.docx
 ```
 
 O arquivo convertido será salvo na pasta `output`.
@@ -65,14 +65,14 @@ pip install --upgrade pip
 pip install -e .
 ```
 
-Após esses passos, o comando `convert_markdown` estará disponível no seu terminal.
+Após esses passos, o comando `convert` estará disponível no seu terminal.
 
 #### Passo 4: Execute o comando
 
 ```bash
-convert_markdown input/seu_arquivo.md
+convert input/seu_arquivo.md
 # ou
-convert_markdown input/seu_arquivo.md -o nome_final.docx
+convert input/seu_arquivo.md -o nome_final.docx
 ```
 
 <h2 align="center">Estrutura do Projeto</h2>

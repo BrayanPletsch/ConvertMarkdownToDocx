@@ -1,4 +1,48 @@
+# Virtual environments
 .venv/
+env/
+venv/
+
+# Byte-compiled / cache
 __pycache__/
+*.py[cod]
+*$py.class
+
+# pytest cache
+.pytest_cache/
+
+# Coverage reports
+.coverage
+coverage.xml
+htmlcov/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+*.whl
+
+# Lock files
+poetry.lock
+
+# Output directory and generated docs
 output/
 *.docx
+
+# Editor / IDE directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Logs
+*.log

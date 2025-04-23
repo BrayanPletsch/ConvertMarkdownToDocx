@@ -1,120 +1,152 @@
-<h1 align="center">
-  📝 Conversor de Markdown para Docx
-</h1>
+<h1 align="center">Conversor Markdown para Docx</h1>
 
-<p align="center">
-  Transforme textos em Markdown diretamente em documentos Word (.docx) formatados segundo as <strong>normas da ABNT</strong>. Ideal para gerar relatórios, planos de aula, artigos e trabalhos acadêmicos direto do que o ChatGPT (ou você) produz em Markdown.
-</p>
+O **ConvertMarkdownToDocx** é um projeto desenvolvido para automatizar a conversão de arquivos Markdown para documentos Word (.docx) formatados segundo as normas ABNT. É especialmente útil para acadêmicos, profissionais da educação, redatores técnicos e empresas que desejam uma forma prática e rápida de gerar documentos estruturados e profissionais a partir de conteúdo escrito em Markdown.
 
----
+## Proposta do Projeto
 
-## 🎯 Proposta do Projeto
+O objetivo principal deste projeto é simplificar e agilizar o processo de criação de documentos formatados corretamente, eliminando o tempo gasto com a formatação manual no Word. É uma solução ideal para quem utiliza regularmente Markdown e precisa gerar documentos em conformidade com as normas ABNT.
 
-O objetivo principal do `ConvertMarkdownToDocx` é automatizar a geração de documentos `.docx` formatados com base no padrão ABNT, a partir de textos em Markdown — formato amplamente utilizado por desenvolvedores, escritores técnicos e plataformas como o ChatGPT.
+O projeto lê o conteúdo Markdown, interpreta títulos, listas, tabelas e outros elementos comuns, e gera automaticamente um documento Word formatado, pronto para revisão ou impressão.
 
-> Imagine gerar um relatório acadêmico com negritos, títulos, tabelas e sumário **direto do conteúdo que o ChatGPT já retorna**. É isso que este projeto faz.
+## Quando utilizar este projeto?
 
----
+- Criação rápida e eficiente de relatórios técnicos e acadêmicos.
+- Automatização da geração de documentos formatados conforme ABNT.
+- Simplificação do processo de conversão de conteúdos produzidos por plataformas como o ChatGPT.
 
-## 🧪 Quando usar?
+## Como utilizar
 
-- Para transformar resumos, relatórios e planejamentos em Markdown em documentos profissionais.
-- Em projetos acadêmicos, educacionais ou corporativos que precisam de **conformidade com a ABNT**.
-- Para automatizar a criação de `.docx` sem depender de ferramentas online ou formatação manual.
+### Opção 1: Instalação a partir do PyPI
 
----
+A forma mais rápida de começar a usar o projeto é instalando diretamente do PyPI:
 
-## 🚀 Como utilizar o projeto
+```bash
+pip install convert_markdown
+```
 
-### 1️⃣ Clone o repositório:
+Após instalado, você pode executar o conversor diretamente:
+
+1. Para executar com o nome do arquivo gerado automaticamente:
+
+```bash
+convert_markdown input/seu_arquivo.md
+```
+
+2. Caso deseje definir manualmente o nome do arquivo que será gerado:
+
+```bash
+convert_markdown input/seu_arquivo.md -o nome_final.docx
+```
+
+O arquivo convertido será salvo na pasta `output`.
+
+### Opção 2: Clonando o repositório
+
+Se preferir trabalhar diretamente com o código-fonte, siga os passos abaixo:
+
+#### Passo 1: Clone o repositório
 
 ```bash
 git clone https://github.com/BrayanPletsch/ConvertMarkdownToDocx.git
 cd ConvertMarkdownToDocx
 ```
 
-### 2️⃣ Crie o ambiente virtual:
+#### Passo 2: Crie um ambiente virtual
 
 ```bash
-python3 -m venv .venv      # no Windows: python -m venv .venv
-source .venv/bin/activate  # no Windows: .venv\Scripts\activate
+python3 -m venv .venv      # Windows: python -m venv .venv 
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
 ```
 
-### 3️⃣ Instale as dependências:
+#### Passo 3: Instale as dependências
 
 ```bash
-pip install -r requirements.txt
+pip install --upgrade pip
+pip install -e .
 ```
 
----
+Após esses passos, o comando `convert_markdown` estará disponível no seu terminal.
 
-### 4️⃣ Execute o script:
-
-Edite a variável `markdown_text` no `app.py` com seu conteúdo Markdown.
-
-Depois, execute:
+#### Passo 4: Execute o comando
 
 ```bash
-python3 app.py  # no Windows: python .\app.py
+convert_markdown input/seu_arquivo.md
+# ou
+convert_markdown input/seu_arquivo.md -o nome_final.docx
 ```
 
-✅ Um documento `.docx` formatado em ABNT será salvo na pasta `output/`, com nome único baseado no timestamp.
-
----
-
-## 📂 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 ConvertMarkdownToDocx/
-├── .venv/                 # Ambiente virtual (ignorado no Git)
-├── app.py                 # Script principal para conversão e formatação
-├── output/                # Onde os arquivos .docx são salvos
-├── requirements.txt       # Bibliotecas utilizadas
-└── .gitignore             # Arquivos e pastas ignoradas pelo Git
+├── src/
+│   └── convert_markdown/
+│       ├── cli.py                # Interface de linha de comando
+│       ├── converter.py          # Limpa e trata o conteúdo Markdown
+│       ├── docx_generator.py     # Gera e formata o documento Word
+│       └── utils/
+│           └── markdown_utils.py # Funções auxiliares
+├── tests/                        # Testes unitários
+├── docs/                         # Documentação detalhada
+├── input/                        # Arquivos Markdown de entrada
+├── output/                       # Documentos Word gerados
+├── LICENSE
+├── pyproject.toml
+├── requirements.txt
+└── .gitignore
 ```
 
----
-
-## 🔍 O que o script faz?
-
-(❗ Em breve será detalhado em `docs/`)
+## Funcionalidades principais
 
 - Lê texto Markdown com títulos, listas, tabelas e separadores.
 - Cria um `.docx` com:
   - Títulos formatados conforme ABNT (tamanhos 18, 16, 14).
   - Corpo com fonte Times New Roman 12, justificado, espaçamento 1.5.
-  - Sumário automático gerado no início (basta atualizar no Word).
+  - Geração automática de sumário (necessita atualização manual no Word).
   - Tabelas com bordas e suporte a **negrito dentro de células**.
-  - Linhas horizontais a partir de `---`.
-  - Numeração de página no rodapé.
+  - Rodapé com numeração automática das páginas.
 
----
+## Limitações atuais
 
-## 🤝 Como contribuir
+- Não processa imagens no formato Markdown (`![]()`).
+- Itálico (`*texto*`) ainda não é suportado.
+- Blocos de código (```) não são tratados adequadamente.
+- O sumário deve ser atualizado manualmente no Word após a geração.
 
-Contribuições são bem-vindas! Para colaborar:
+## Futuras melhorias
 
-1. Faça um **fork** do projeto
+- Implementação de suporte completo para imagens e links.
+- Melhoria na conversão de listas aninhadas.
+- Opção para exportação também em formato PDF.
+- Interface web interativa via Swagger/OpenAPI.
+
+## Como contribuir
+
+Contribuições são muito bem-vindas! Caso queira contribuir, siga estes passos:
+
+1. Faça um **fork** do projeto.
 2. Crie uma branch com sua feature:
-   ```bash
-   git checkout -b minha-melhoria
-   ```
-3. Faça os commits:
-   ```bash
-   git commit -m "feat: adicionei nova funcionalidade"
-   ```
-4. Envie sua branch:
-   ```bash
-   git push origin minha-melhoria
-   ```
-5. Abra um Pull Request 🚀
 
----
+```bash
+git checkout -b minha-melhoria
+```
 
-## 🧾 Licença
+3. Commit suas alterações:
 
-Distribuído sob a licença MIT. Veja `LICENSE` para mais detalhes.
+```bash
+git commit -m "feat: descrição da nova funcionalidade"
+```
 
----
+4. Envie sua branch para o repositório:
 
-<p align="center"><i>Desenvolvido com por Brayan Pletsch</i></p>
+```bash
+git push origin minha-melhoria
+```
+
+5. Abra um Pull Request com uma descrição clara das mudanças feitas.
+
+## Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+<p align="center"><i>Desenvolvido por Brayan Pletsch.</i></p>

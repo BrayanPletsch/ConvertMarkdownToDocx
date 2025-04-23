@@ -2,13 +2,13 @@
 
 O **ConvertMarkdownToDocx** é um projeto desenvolvido para automatizar a conversão de arquivos Markdown para documentos Word (.docx) formatados segundo as normas ABNT. É especialmente útil para acadêmicos, profissionais da educação, redatores técnicos e empresas que desejam uma forma prática e rápida de gerar documentos estruturados e profissionais a partir de conteúdo escrito em Markdown.
 
-<h2 align="center">Proposta do Projeto</h2>
+## Proposta do Projeto
 
 O objetivo principal deste projeto é simplificar e agilizar o processo de criação de documentos formatados corretamente, eliminando o tempo gasto com a formatação manual no Word. É uma solução ideal para quem utiliza regularmente Markdown e precisa gerar documentos em conformidade com as normas ABNT.
 
 O projeto lê o conteúdo Markdown, interpreta títulos, listas, tabelas e outros elementos comuns, e gera automaticamente um documento Word formatado, pronto para revisão ou impressão.
 
-<h2 align="center">Quando utilizar este projeto?</h2>
+## Quando utilizar este projeto?
 
 - Criação rápida e eficiente de relatórios técnicos e acadêmicos.
 - Automatização da geração de documentos formatados conforme ABNT.
@@ -96,7 +96,7 @@ ConvertMarkdownToDocx/
 └── .gitignore
 ```
 
-<h2 align="center">Funcionalidades principais</h2>
+## Funcionalidades principais
 
 - Lê texto Markdown com títulos, listas, tabelas e separadores.
 - Cria um `.docx` com:
@@ -106,14 +106,14 @@ ConvertMarkdownToDocx/
   - Tabelas com bordas e suporte a **negrito dentro de células**.
   - Rodapé com numeração automática das páginas.
 
-<h2 align="center">Limitações atuais</h2>
+## Limitações atuais
 
 - Não processa imagens no formato Markdown (`![]()`).
 - Itálico (`*texto*`) ainda não é suportado.
 - Blocos de código (```) não são tratados adequadamente.
 - O sumário deve ser atualizado manualmente no Word após a geração.
 
-<h2 align="center">Futuras melhorias</h2>
+## Futuras melhorias
 
 - Implementação de suporte completo para imagens e links.
 - Melhoria na conversão de listas aninhadas.
@@ -145,7 +145,7 @@ git push origin minha-melhoria
 
 5. Abra um Pull Request com uma descrição clara das mudanças feitas.
 
-<h2 align="center">Licença</h2>
+## Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 

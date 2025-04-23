@@ -1,27 +1,27 @@
-<h1 align="center">Conversor Markdown para Docx</h1>
+<h1 align="center">📝Conversor Markdown para Docx📝</h1>
 
 O **ConvertMarkdownToDocx** é um projeto desenvolvido para automatizar a conversão de arquivos Markdown para documentos Word (.docx) formatados segundo as normas ABNT. É especialmente útil para acadêmicos, profissionais da educação, redatores técnicos e empresas que desejam uma forma prática e rápida de gerar documentos estruturados e profissionais a partir de conteúdo escrito em Markdown.
 
-## Proposta do Projeto
+<h2 align="center">Proposta do Projeto</h2>
 
 O objetivo principal deste projeto é simplificar e agilizar o processo de criação de documentos formatados corretamente, eliminando o tempo gasto com a formatação manual no Word. É uma solução ideal para quem utiliza regularmente Markdown e precisa gerar documentos em conformidade com as normas ABNT.
 
 O projeto lê o conteúdo Markdown, interpreta títulos, listas, tabelas e outros elementos comuns, e gera automaticamente um documento Word formatado, pronto para revisão ou impressão.
 
-## Quando utilizar este projeto?
+<h2 align="center">Quando utilizar este projeto?</h2>
 
 - Criação rápida e eficiente de relatórios técnicos e acadêmicos.
 - Automatização da geração de documentos formatados conforme ABNT.
 - Simplificação do processo de conversão de conteúdos produzidos por plataformas como o ChatGPT.
 
-## Como utilizar
+<h2 align="center">Como utilizar</h2>
 
 ### Opção 1: Instalação a partir do PyPI
 
 A forma mais rápida de começar a usar o projeto é instalando diretamente do PyPI:
 
 ```bash
-pip install convert_markdown
+pip install convert-markdown-docx
 ```
 
 Após instalado, você pode executar o conversor diretamente:
@@ -75,7 +75,7 @@ convert_markdown input/seu_arquivo.md
 convert_markdown input/seu_arquivo.md -o nome_final.docx
 ```
 
-## Estrutura do Projeto
+<h2 align="center">Estrutura do Projeto</h2>
 
 ```
 ConvertMarkdownToDocx/
@@ -96,7 +96,7 @@ ConvertMarkdownToDocx/
 └── .gitignore
 ```
 
-## Funcionalidades principais
+<h2 align="center">Funcionalidades principais</h2>
 
 - Lê texto Markdown com títulos, listas, tabelas e separadores.
 - Cria um `.docx` com:
@@ -106,21 +106,21 @@ ConvertMarkdownToDocx/
   - Tabelas com bordas e suporte a **negrito dentro de células**.
   - Rodapé com numeração automática das páginas.
 
-## Limitações atuais
+<h2 align="center">Limitações atuais</h2>
 
 - Não processa imagens no formato Markdown (`![]()`).
 - Itálico (`*texto*`) ainda não é suportado.
 - Blocos de código (```) não são tratados adequadamente.
 - O sumário deve ser atualizado manualmente no Word após a geração.
 
-## Futuras melhorias
+<h2 align="center">Futuras melhorias</h2>
 
 - Implementação de suporte completo para imagens e links.
 - Melhoria na conversão de listas aninhadas.
 - Opção para exportação também em formato PDF.
 - Interface web interativa via Swagger/OpenAPI.
 
-## Como contribuir
+<h2 align="center">Como contribuir</h2>
 
 Contribuições são muito bem-vindas! Caso queira contribuir, siga estes passos:
 
@@ -145,7 +145,7 @@ git push origin minha-melhoria
 
 5. Abra um Pull Request com uma descrição clara das mudanças feitas.
 
-## Licença
+<h2 align="center">Licença</h2>
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
